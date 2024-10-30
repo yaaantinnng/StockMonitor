@@ -30,4 +30,7 @@ def index():
     return render_template_string(all_charts_html_content)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    port = int(os.environ.get("PORT", 5000))
+    # 使用 Heroku 所需的 "0.0.0.0" 作为 host，使应用可以在 Heroku 上被外界访问
+    app.run(host="0.0.0.0", port=port)
